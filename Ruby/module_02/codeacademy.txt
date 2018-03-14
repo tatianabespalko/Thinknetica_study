@@ -1,0 +1,92 @@
+# Control flow
+print "Integer please: "
+user_num = Integer(gets.chomp)
+
+if user_num < 0
+  puts "You picked a negative integer!"
+elsif user_num > 0
+  puts "You picked a positive integer!"
+else
+  puts "You picked zero!"
+end
+
+
+# if, else statement
+
+if 1 > 2
+  print "I won't get printed because one is less than two."
+else
+  print "That means I'll get printed!"
+end
+
+# elsif
+
+if x < y  # Assumes x and y are defined
+  puts "x is less than y!"
+elsif x > y
+  puts "x is greater than y!"
+else
+  puts "x equals y!"
+end
+
+# unless
+unless hungry
+  # Write some sweet programs
+else
+  # Have some noms
+end
+
+# Equal or Not?
+
+x = 2
+y = 2
+if x == y
+  print "x and y are equal!"
+end
+
+
+# Less Than or Greater Than
+Less than: <
+Less than or equal to: <=
+Greater than: >
+Greater than or equal to: >=
+
+# And
+true && true # => true
+true && false # => false
+false && true # => false
+false && false # => false
+
+# Or
+true || true # => true
+true || false # => true
+false || true # => true
+false || false # => false
+
+# Not
+!true # => false
+!false # => true
+
+# Combining Boolean Operators
+(x && (y || w)) && z
+
+# If, Else, and Elsif
+a = 10
+b = 11
+if a < b
+  print "a is less than b!"
+elsif b < a
+  print "b is less than a!"
+else
+  print "b is equal to a!"
+end
+
+# Unless
+problem = false
+print "Good to go!" unless problem
+
+
+# Billions of Booleans
+( 1 == 1 ) && ( 2 == 2 )  # true
+( 1 == 2 ) || ( 2 == 2 ) # true
+!( false ) # true
