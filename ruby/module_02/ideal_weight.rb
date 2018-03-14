@@ -6,11 +6,8 @@ puts "Как тебя зовут?"
 name = gets.chomp
 
 puts "Напишите Ваш рост?"
-height = gets.chomp
+height = gets.chomp.to_i
 
-
-
-weight = height.to_i - 110
+weight = height - 110
 print "#{name}, "
 puts weight < 0 ? "Ваш вес уже оптимальный" : "Ваш идеальный вес: #{weight}"
-
