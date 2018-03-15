@@ -10,13 +10,13 @@
 # a**a + b**b = c**c
 
 puts "Введите значение side1:"
-s1 = gets.chomp.to_f
+s1 = gets.to_f
 
 puts "Введите значение side2:"
-s2 = gets.chomp.to_f
+s2 = gets.to_f
 
 puts "Введите значение side3:"
-s3 = gets.chomp.to_f
+s3 = gets.to_f
 
 if s1**2 + s2**2 == s3**2
   puts "Треугольник прямоугольный"

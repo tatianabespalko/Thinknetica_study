@@ -14,13 +14,13 @@
  #  вернет 4, т.е. квадратный корень из 16.
 
 puts "Введите значение a:"
-a = gets.chomp.to_f
+a = gets.to_f
 
 puts "Введите значение b:"
-b = gets.chomp.to_f
+b = gets.to_f
 
 puts "Введите значение c:"
-c = gets.chomp.to_f
+c = gets.to_f
 
 d = b**2 - 4 * a * c
 puts "Дискриминант равен: #{d}"

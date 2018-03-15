@@ -3,10 +3,10 @@
 # треугольника и возвращать его площадь.
 
 puts "Введите основание треугольника:"
-base = gets.chomp.to_f
+base = gets.to_f
 
 puts "Введите высоту треугольника:"
-altitude = gets.chomp.to_f
+altitude = gets.to_f
 
 # puts "Площадь треугольника равна: #{1.0 / 2 * base.to_f * altitude.to_f}"
 puts "Площадь треугольника равна: #{0.5 * base * altitude}"

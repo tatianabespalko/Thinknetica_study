@@ -6,7 +6,7 @@ puts "Как тебя зовут?"
 name = gets.chomp
 
 puts "Напишите Ваш рост?"
-height = gets.chomp.to_i
+height = gets.to_i
 
 weight = height - 110
 print "#{name}, "
