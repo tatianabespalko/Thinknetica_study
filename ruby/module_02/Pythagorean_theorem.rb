@@ -18,9 +18,12 @@ s2 = gets.to_f
 puts "Введите значение side3:"
 s3 = gets.to_f
 
-if s3 > s2 || s3 > s1
+side = [s1, s2, s3]
 
-end
+side.sort!
+s1 = side[0]
+s2 = side[1]
+s3 = side[2]
 
 if s1**2 + s2**2 == s3**2
   puts "Треугольник прямоугольный"
