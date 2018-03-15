@@ -26,8 +26,9 @@ d = b**2 - 4 * a * c
 puts "Дискриминант равен: #{d}"
 
 if d > 0
-  x1 = (-b + Math.sqrt(d)) / (2 * a)
-  x2 = (-b - Math.sqrt(d)) / (2 * a)
+  c = Math.sqrt(d)
+  x1 = (-b + c) / (2 * a)
+  x2 = (-b - c) / (2 * a)
   puts "Первый корень: #{x1}, второй корень #{x2}"
 elsif d.zero?
   x = -b / (2 * a)

@@ -9,23 +9,23 @@
 
 # a**a + b**b = c**c
 
-puts "Введите значение катета a:"
-a = gets.chomp.to_f
+puts "Введите значение side1:"
+s1 = gets.chomp.to_f
 
-puts "Введите значение катета b:"
-b = gets.chomp.to_f
+puts "Введите значение side2:"
+s2 = gets.chomp.to_f
 
-puts "Введите значение гипотенузы c:"
-c = gets.chomp.to_f
+puts "Введите значение side3:"
+s3 = gets.chomp.to_f
 
-if a**2 + b**2 == c**2
+if s1**2 + s2**2 == s3**2
   puts "Треугольник прямоугольный"
 else
   puts "Треугольник не прямоугольный"
 end
 
-if a == b && a == c
+if s1 == s2 && s1 == s3
   puts "Треугольник равнобедренный и равносторонний"
-elsif (a == b || a == c || b == c)
+elsif (s1 == s2 || s1 == s3 || s2 == s3)
   puts "Треугольник равнобедренный"
 end
