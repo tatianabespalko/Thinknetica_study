@@ -8,31 +8,26 @@
 # то треугольник равнобедренный и равносторонний, но не прямоугольный.
 
 # a**a + b**b = c**c
+sides = []
 
 puts "Введите значение side1:"
-s1 = gets.to_f
+sides[0] = gets.to_f
 
 puts "Введите значение side2:"
-s2 = gets.to_f
+sides[1] = gets.to_f
 
 puts "Введите значение side3:"
-s3 = gets.to_f
+sides[2] = gets.to_f
 
-side = [s1, s2, s3]
+[sides[0], sides[1], sides[2]].sort!
 
-side.sort!
-s1 = side[0]
-s2 = side[1]
-s3 = side[2]
-
-if s1**2 + s2**2 == s3**2
-  puts "Треугольник прямоугольный"
+if sides[0]**2 + sides[1]**2 == sides[2]**2
+  puts "Треугольник прямоугольный" 
+  if sides[0] == sides[1] && sides[0] == sides[2]
+    puts "Треугольник равнобедренный и равносторонний"
+  elsif sides[0] == sides[1] || sides[0] == sides[2] || sides[1] == sides[2]
+    puts "Треугольник равнобедренный"
+  end
 else
   puts "Треугольник не прямоугольный"
-end
-
-if s1 == s2 && s1 == s3
-  puts "Треугольник равнобедренный и равносторонний"
-elsif s1 == s2 || s1 == s3 || s2 == s3
-  puts "Треугольник равнобедренный"
 end
