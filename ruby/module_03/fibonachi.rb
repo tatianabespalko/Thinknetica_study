@@ -8,6 +8,14 @@ fibonachchi = [0,1]
 #  fibonachchi << next_fibonachchi
 #end
 
-fibonachchi << fibonachchi.last + fibonachchi[-2] while fibonachchi.last < 100
+# while fibonachchi.last < 89 do
+#   fibonachchi << fibonachchi.last + fibonachchi[-2]
+# end 
+
+# print fibonachchi
+
+while fibonachchi.last + fibonachchi[-2] < 100 do
+  fibonachchi << fibonachchi.last + fibonachchi[-2]
+end 
 
 print fibonachchi

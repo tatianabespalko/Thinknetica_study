@@ -18,11 +18,22 @@ loop do
   price = gets.to_f
   print "Введите количество: "
   count = gets.to_f
-  
-  purchases[name] = { price: price, count: count }  
+  purchases[name] = { price: price, count: count }
 end 
 
-purchases.each { |name, hash| sum += hash[:price] * hash[:count] }
+#purchases.each { |name, hash| sum += hash[:price] * hash[:count] }
+#puts purchases
+#puts "Итого: #{sum}"
+
+purchases.each do |name, hash|
+  item_sum = 0
+  item_sum += hash[:price] * hash[:count]
+  sum += item_sum
+  puts "Сумма за #{name} составляет #{item_sum}"
+end
 
 puts purchases
+
 puts "Итого: #{sum}"
+
+
