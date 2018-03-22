@@ -1,0 +1,143 @@
+tanya@Bespalko:~/thinknetica/ruby/module_04$ irb
+2.0.0-p648 :001 > load './car.rb' 
+ => true 
+2.0.0-p648 :002 > Car   # Создаем классы, записываем методы -
+ => Car                 # Создаем инстансы, екземпляры или 
+2.0.0-p648 :003 > car = Car.new  # обьекты нашего класса
+ => #<Car:0x00000001a24850> 
+2.0.0-p648 :004 > car.object_id
+ => 13706280 
+2.0.0-p648 :006 > car2 = Car.new
+ => #<Car:0x00000001a15170> 
+2.0.0-p648 :008 > car2.object_id
+ => 13674680 
+2.0.0-p648 :009 > car.start_engine
+Wroom!
+ => nil 
+2.0.0-p648 :010 > car.beep
+beep beep
+ => nil       
+2.0.0-p648 :011 > car.stop
+stop
+ => nil 
+2.0.0-p648 :012 > load './car.rb'
+ => true 
+2.0.0-p648 :013 > car = Car.new
+ => #<Car:0x000000021d1328> 
+2.0.0-p648 :014 > car.current_speed
+
+ => nil 
+2.0.0-p648 :015 > car.go
+ => 50 
+2.0.0-p648 :016 > car.current_speed
+50
+ => nil 
+2.0.0-p648 :017 > car.current_speed
+50
+ => nil 
+2.0.0-p648 :026 > load './car.rb'
+ => true 
+2.0.0-p648 :027 > car.current_speed
+Current speed: 50
+ => nil 
+2.0.0-p648 :028 > car.stop
+ => 0 
+2.0.0-p648 :029 > car.current_speed
+Current speed: 0
+ => nil 
+2.0.0-p648 :030 > load './car.rb'
+ => true 
+2.0.0-p648 :031 > car.go
+local speed: 40, instance speed: 50
+ => nil 
+2.0.0-p648 :032 > car.current_speed
+NameError: undefined local variable or method `speed' for #<Car:0x000000021d1328 @speed=50>
+  from /home/tanya/thinknetica/ruby/module_04/car.rb:23:in `current_speed'
+  from (irb):32
+  from /home/tanya/.rvm/rubies/ruby-2.0.0-p648/bin/irb:12:in `<main>'
+2.0.0-p648 :038 > load './car.rb'
+ => true 
+2.0.0-p648 :039 > car = Car.new
+beep beep
+ => #<Car:0x00000001c851d0 @speed=10> 
+2.0.0-p648 :040 > car.current_speed
+Current speed: 10
+ => nil 
+2.0.0-p648 :041 > load './car.rb'
+ => true 
+2.0.0-p648 :042 > car = Car.new
+beep beep
+Current speed: 10
+ => #<Car:0x00000001d11d38 @speed=10> 
+2.0.0-p648 :043 > load './car.rb'
+ => true 
+2.0.0-p648 :044 > car = Car.new
+ArgumentError: wrong number of arguments (0 for 2)
+  from /home/tanya/thinknetica/ruby/module_04/car.rb:2:in `initialize'
+  from (irb):44:in `new'
+  from (irb):44
+  from /home/tanya/.rvm/rubies/ruby-2.0.0-p648/bin/irb:12:in `<main>'
+2.0.0-p648 :045 > car = Car.new(10, 2.0)
+ => #<Car:0x00000001d52ef0 @speed=10, @engine_volume=2.0> 
+2.0.0-p648 :046 > car.current_speed
+Current speed: 10
+ => nil     
+2.0.0-p648 :047 > car.engine_volume
+ => 2.0 
+2.0.0-p648 :048 > load './car.rb'
+ => true 
+2.0.0-p648 :049 > car = Car.new(0, 2.0)
+ => #<Car:0x00000001dfb870 @speed=0, @engine_volume=2.0> 
+2.0.0-p648 :050 > car.current_speed
+ => 0 
+2.0.0-p648 :051 > car.engine_volume
+ => 2.0 
+2.0.0-p648 :058 > car.set_speed(20)
+ => 20 
+2.0.0-p648 :059 > car.current_speed
+ => 20 
+2.0.0-p648 :060 > car
+ => #<Car:0x00000001e44070 @speed=20, @engine_volume=2.0> 
+2.0.0-p648 :061 > load './car.rb'
+ => true 
+2.0.0-p648 :062 > car = Car.new
+ArgumentError: wrong number of arguments (0 for 1..2)
+  from /home/tanya/thinknetica/ruby/module_04/car.rb:2:in `initialize'
+  from (irb):62:in `new'
+  from (irb):62
+  from /home/tanya/.rvm/rubies/ruby-2.0.0-p648/bin/irb:12:in `<main>'
+2.0.0-p648 :063 > car = Car.new(2.0)
+ => #<Car:0x00000001f82fe0 @speed=0, @engine_volume=2.0> 
+2.0.0-p648 :064 > car = Car.new(10, 2.0)
+ => #<Car:0x00000001f91248 @speed=10, @engine_volume=2.0> 
+2.0.0-p648 :065 >  load './car.rb'
+ => true 
+2.0.0-p648 :066 > car.speed = 10
+NoMethodError: undefined method `speed=' for #<Car:0x00000001f91248 @speed=10, @engine_volume=2.0>
+  from (irb):66
+  from /home/tanya/.rvm/rubies/ruby-2.0.0-p648/bin/irb:12:in `<main>'
+2.0.0-p648 :067 > load './car.rb'
+ => true 
+2.0.0-p648 :068 > car.speed = 10
+ => 10 
+2.0.0-p648 :069 > car.speed = 60
+ => 60 
+2.0.0-p648 :070 > load './car.rb'
+ => true 
+2.0.0-p648 :071 > car = Car.new(2.0)
+ => #<Car:0x0000000201ba88 @speed=0, @engine_volume=2.0> 
+2.0.0-p648 :073 > car.speed = 60
+ => 60 
+2.0.0-p648 :074 > car.speed
+ => 60 
+2.0.0-p648 :075 > car
+ => #<Car:0x0000000201ba88 @speed=60, @engine_volume=2.0> 
+2.0.0-p648 :076 > car.engine_volume
+ => 2.0 
+2.0.0-p648 :077 > load './car.rb'
+ => true 
+2.0.0-p648 :078 > car = Car.new(2.0)
+ => #<Car:0x000000021048a0 @speed=0, @engine_volume=2.0> 
+2.0.0-p648 :079 > car.go
+beep beep
+ => nil 
