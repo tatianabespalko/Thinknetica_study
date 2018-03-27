@@ -2,7 +2,6 @@ class Car
   # attr_writer :speed
   # attr_reader :speed
   attr_accessor :speed
-
   attr_reader :engine_volume
 
   def initialize(speed = 0, engine_volume)
@@ -22,7 +21,7 @@ class Car
   end
 
   def stop
-#    @speed = 0 
+#    @speed = 0
     self.speed = 0
   end
 
@@ -38,17 +37,17 @@ class Car
 #   def speed
 #     @speed
 # #    speed = 23
-# #    puts "Current speed: #{@speed}, local speed: #{speed}"    
+# #    puts "Current speed: #{@speed}, local speed: #{speed}"
 # #    puts "Current speed: #{@speed}"
 #   end
 
 #   def engine_volume
-#     @engine_volume    
+#     @engine_volume
 #   end
 
 # #  def set_speed(speed)
 #   def speed=(speed)
 #     @speed = speed
-    
+
 #   end
 end
