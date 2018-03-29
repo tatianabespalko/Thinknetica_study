@@ -10,7 +10,7 @@
 
 class Station
 
-  attr_accessor :name, :arrival, :trains
+  attr_reader :trains, :name
 
   def initialize(options)
     @name = options[:name]
@@ -24,10 +24,10 @@ class Station
   end
 
   def filter_by(type)
-    puts "Тип поезда #{cargo_train}" || "Тип поезда #{passenger_train}"
+    return "Тип поезда #{cargo_train}" || "Тип поезда #{passenger_train}"
   end
 
-  def departure_train
+  def departure_train(train)
     train = @trains.pop
     puts "Отправлен поезд #{train}"
   end
@@ -35,7 +35,8 @@ class Station
 end
 
 class Route
-  attr_accessor :stations
+
+  attr_reader :stations
 
   def initialize(options)
     @stations = [options[:begin], options[:end]]
@@ -45,14 +46,17 @@ class Route
     @stations.insert(-2, station)
   end
 
-  def remove_station(station)
-    @stations.delete(station)
+  def remove_station(transfer_station)
+    @stations.delete(transfer_station)
   end
 
 end
 
 class Train
-  attr_accessor :number, :type, :car, :speed, :route, :current_station
+
+  attr_accessor :number, :cars, :speed
+
+  attr_reader :route, :current_station, :type
 
   def initialize
     @current_station = 0
@@ -71,7 +75,7 @@ class Train
   end
 
   def set_route(r)
-    puts "Маршрут следования #{route}"
+    puts "Маршрут следования #{r}"
   end
 
   def go_ahead
