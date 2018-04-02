@@ -23,13 +23,25 @@ class Station
     puts "Прибыл поезд #{train}"
   end
 
-  def filter_by(type)
-    return "Тип поезда #{cargo_train}" || "Тип поезда #{passenger_train}"
-  end
+  # def filter_by(type)
+  #   return "Тип поезда #{cargo_train}" || "Тип поезда #{passenger_train}"
+  # end
 
   def departure_train(train)
-    train = @trains.pop
+    train = @trains.delete(train)
     puts "Отправлен поезд #{train}"
+  end
+
+  def trains_list
+    @trains.each { |train| puts "Поезд № #{train.number} типа #{train.type}." }
+  end
+
+  def trains_list_type(type)
+    @trains.count { |train| train.type == type }
+  end
+
+  def each_train
+    @trains.each { |train| yield train }
   end
 
 end
