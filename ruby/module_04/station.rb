@@ -29,20 +29,30 @@ class Station
 
   def departure_train(train)
     train = @trains.delete(train)
-    puts "Отправлен поезд #{train}"
+    puts "Cо станции отправлен поезд #{train}"
   end
 
-  def trains_list
-    @trains.each { |train| puts "Поезд № #{train.number} типа #{train.type}." }
+  def trains_list(type = nil)
+    if type
+      puts "Поезда на станции #{@name} типа #{type}: "
+      @trains.each{|train| puts train.number if train.type == type}
+    else
+      puts "Поезда на станции #{@name}: "
+      @trains.each{|train| puts train.number}
+    end
   end
 
-  def trains_list_type(type)
-    @trains.count { |train| train.type == type }
-  end
+  # def trains_list
+  #   @trains.each { |train| puts "Поезд № #{train.number} типа #{train.type}." }
+  # end
 
-  def each_train
-    @trains.each { |train| yield train }
-  end
+  # def trains_list_type(type)
+  #   @trains.count { |train| train.type == type }
+  # end
+
+  # def each_train
+  #   @trains.each { |train| yield train }
+  # end
 
 end
 
@@ -58,19 +68,29 @@ class Route
     @stations.insert(-2, station)
   end
 
-  def remove_station(transfer_station)
-    @stations.delete(transfer_station)
+  def remove_station(station)
+    if [options[:begin], options[:end]].include?(station)
+    puts "Первую и последнюю станции маршрута удалять нельзя!"
+    else
+    @stations.delete(station)
+    puts "Из маршрута #{@name} удалена станция #{station}"
+    end
   end
 
+  def show_stations
+    puts "Список станций на маршруте: "
+    @stations.each {|station| puts "#{station}"}
+  end
 end
 
 class Train
 
-  attr_accessor :number, :cars, :speed
+  attr_reader :number, :cars, :speed, :route, :current_station, :type
 
-  attr_reader :route, :current_station, :type
-
-  def initialize
+  def initialize(number, type, cars)
+    @number = number
+    @type = type
+    @cars = cars
     @current_station = 0
   end
 
@@ -86,8 +106,9 @@ class Train
     @car -= 1 if @speed == 0 && @car >= 1
   end
 
-  def set_route(r)
-    puts "Маршрут следования #{r}"
+  def set_route(route)
+    @route = route
+    puts "Маршрут следования #{route}"
   end
 
   def go_ahead
@@ -105,11 +126,15 @@ s2 = Station.new(name: 'Vinnitsya')
 s3 = Station.new(name: 'Kyiv')
 s4 = Station.new(name: 'Kharkiv')
 
-r1 = Route.new(s1, s2, s3)
-r2 = Route.new(s1, s3, s4)
-r3 = Route.new(s2, s3, s4)
+
+
+# route1 = Route.new( begin: 's1', end: 's2' )
+# route.add_station(s3)
+# route.show_stations
+# route.remove_station(station3)
 
 train1 = Train.new(1,"passenger", 12)
 train2 = Train.new(2, "cargo", 20)
 train3 = Train.new(3,"passenger", 14)
 train4 = Train.new(4, "cargo", 22)
+
