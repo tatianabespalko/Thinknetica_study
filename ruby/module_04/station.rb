@@ -61,7 +61,7 @@ class Route
   attr_reader :stations
 
   def initialize(options)
-    @stations = [options[:begin], options[:end]]
+    @stations = [ options[:first], options[:last] ]
   end
 
   def add_station(station)
@@ -69,11 +69,11 @@ class Route
   end
 
   def remove_station(station)
-    if [ options[:begin], options[:end] ].include?(station)
-    puts "Первую и последнюю станции маршрута удалять нельзя!"
+    if [ stations[0], stations[-1] ].include?(station)
+      puts "Первую и последнюю станции маршрута удалять нельзя!"
     else
-    @stations.delete(station)
-    puts "Из маршрута #{@name} удалена станция #{station}"
+      @stations.delete(station)
+      puts "Из маршрута #{@name} удалена станция #{station}"
     end
   end
 
@@ -85,12 +85,12 @@ end
 
 class Train
 
-  attr_reader :number, :cars, :speed, :route, :current_station, :type
+  attr_reader :number, :vans, :speed, :route, :current_station, :type
 
-  def initialize(number, type, cars)
+  def initialize(number, type, vans)
     @number = number
     @type = type
-    @cars = cars
+    @vans = vans
     @current_station = 0
   end
 
@@ -98,12 +98,12 @@ class Train
     @speed = 0
   end
 
-  def add_car
-    @car += 1 if @speed == 0
+  def add_van
+    @van += 1 if @speed == 0
   end
 
-  def uncouple_car
-    @car -= 1 if @speed == 0 && @car >= 1
+  def uncouple_van
+    @van -= 1 if @speed == 0 && @van >= 1
   end
 
   def set_route(route)
@@ -126,7 +126,7 @@ s2 = Station.new(name: 'Vinnitsya')
 s3 = Station.new(name: 'Kyiv')
 s4 = Station.new(name: 'Kharkiv')
 
-route1 = Route.new( begin: 's1', end: 's2' )
+route1 = Route.new( first: 's1', last: 's2' )
 route1.add_station(s3)
 route1.show_stations
 route1.remove_station(s3)
