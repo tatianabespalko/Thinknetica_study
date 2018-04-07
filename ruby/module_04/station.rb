@@ -28,17 +28,17 @@ class Station
   # end
 
   def departure_train(train)
-    train = @trains.delete(train)
+    @trains.delete(train)
     puts "Cо станции отправлен поезд #{train}"
   end
 
   def trains_list(type = nil)
     if type
       puts "Поезда на станции #{@name} типа #{type}: "
-      @trains.each{|train| puts train.number if train.type == type}
+      @trains.each{ |train| puts train.number if train.type == type }
     else
       puts "Поезда на станции #{@name}: "
-      @trains.each{|train| puts train.number}
+      @trains.each{ |train| puts train.number }
     end
   end
 
@@ -69,7 +69,7 @@ class Route
   end
 
   def remove_station(station)
-    if [options[:begin], options[:end]].include?(station)
+    if [ options[:begin], options[:end] ].include?(station)
     puts "Первую и последнюю станции маршрута удалять нельзя!"
     else
     @stations.delete(station)
@@ -79,7 +79,7 @@ class Route
 
   def show_stations
     puts "Список станций на маршруте: "
-    @stations.each {|station| puts "#{station}"}
+    @stations.each { |station| puts "#{station}" }
   end
 end
 
@@ -126,12 +126,10 @@ s2 = Station.new(name: 'Vinnitsya')
 s3 = Station.new(name: 'Kyiv')
 s4 = Station.new(name: 'Kharkiv')
 
-
-
-# route1 = Route.new( begin: 's1', end: 's2' )
-# route.add_station(s3)
-# route.show_stations
-# route.remove_station(station3)
+route1 = Route.new( begin: 's1', end: 's2' )
+route1.add_station(s3)
+route1.show_stations
+route1.remove_station(s3)
 
 train1 = Train.new(1,"passenger", 12)
 train2 = Train.new(2, "cargo", 20)
